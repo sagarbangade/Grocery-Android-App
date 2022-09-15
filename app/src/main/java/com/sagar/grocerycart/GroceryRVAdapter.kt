@@ -36,22 +36,14 @@ class GroceryRVAdapter(
     override fun onBindViewHolder(holder: GroceryViewHolder, position: Int) {
         holder.nameTV.text = list.get(position).itemName
         holder.quantityTV.text = list.get(position).itemQuantity.toString()
-        holder.rateTV.text = "₹: "+list.get(position).itemPrice.toString()
-        val itemTotal :Double = list.get(position).itemQuantity * list.get(position).itemPrice
-        holder.totalTV.text = "₹: "+itemTotal.toString()
-//        var Gtotal :Double= 0.0
-//
-//        Gtotal += itemTotal
-//
-//
-//
-//        val sharedPreferences: SharedPreferences = this@GroceryRVAdapter.getSharedPreferences(Gtotal,
-//            Context.MODE_PRIVATE)
-//        holder.deleteIV.setOnClickListener {
-//            groceryItemClickInterface.onItemClick(list.get(position))
-//        }
-    }
+        holder.rateTV.text = "₹: " + list.get(position).itemPrice.toString()
+        val itemTotal: Double = list.get(position).itemQuantity * list.get(position).itemPrice
+        holder.totalTV.text = "₹: " + itemTotal.toString()
+        holder.deleteIV.setOnClickListener {
+            groceryItemClickInterface.onItemClick(list.get(position))
 
+        }
+    }
     override fun getItemCount(): Int {
         return list.size
     }
